@@ -1,1 +1,81 @@
-gattiamps.com - hello world
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gatti Amps</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        h1 {
+            font-family: 'Bebas Neue', Impact, sans-serif;
+            font-size: 4rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+        
+        .amp-container {
+            margin-bottom: 2rem;
+        }
+        
+        .amp-container img {
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+            display: block;
+            cursor: pointer;
+        }
+        
+        .contact {
+            text-align: center;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        
+        .contact a {
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .contact a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gatti Amps</h1>
+    
+    <div class="amp-container">
+        <img src="images/amp-off.png" alt="Gatti Amp" id="amp">
+    </div>
+    
+    <div class="contact">
+        <div>Tel: +39 389 78 92 482</div>
+        <div><a href="mailto:info@gattiamps.com">info@gattiamps.com</a></div>
+    </div>
+
+    <script>
+        const amp = document.getElementById('amp');
+        amp.addEventListener('mouseenter', () => amp.src = 'images/amp-on.png');
+        amp.addEventListener('mouseleave', () => amp.src = 'images/amp-off.png');
+    </script>
+</body>
+</html>
