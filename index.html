@@ -16,6 +16,20 @@
     <meta property="og:image" content="https://gattiamps.github.io/images/amp-off.png">
     
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- iOS Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Gatti Amps">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    
+    <!-- Android/Chrome -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#000000">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
@@ -70,8 +84,16 @@
         h1 {
             font-size: 4rem;
             letter-spacing: 0.1em;
-            margin-bottom: 2rem;
+            margin-bottom: 0.5rem;
             text-transform: uppercase;
+        }
+        
+        h6 {
+            font-size: 1.2rem;
+            letter-spacing: 0.15em;
+            margin-bottom: 2.5rem;
+            opacity: 0.6;
+            font-weight: 400;
         }
         
         .amp-container {
@@ -84,6 +106,31 @@
             height: auto;
             display: block;
             cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+        
+        .amp-container img:hover {
+            opacity: 0.9;
+        }
+        
+        .bio {
+            max-width: 500px;
+            margin: 0 auto 2rem;
+            padding: 1.5rem;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 400;
+            line-height: 1.6;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease;
+        }
+        
+        .bio.show {
+            opacity: 0.85;
+            max-height: 500px;
+            margin-bottom: 2rem;
         }
         
         .contact {
@@ -104,9 +151,14 @@
 </head>
 <body>
     <h1><i><u>GATTI/AMPS</u></i></h1>
+    <h6>hi-fi custom tube guitar amps</h6>
     
     <div class="amp-container">
         <img src="images/amp-off.png" alt="Amplificatore valvolare Gatti Amps - Custom tube guitar amplifier" id="amp">
+    </div>
+    
+    <div class="bio" id="bio">
+        <p>Daniele Gatti, ingegnere elettronico con PhD, costruisce artigianalmente amplificatori valvolari per chitarra da più di 20 anni. Ogni amplificatore è realizzato a mano con componenti selezionati per garantire la massima qualità sonora e affidabilità.</p>
     </div>
     
     <div class="contact">
@@ -116,8 +168,11 @@
 
     <script>
         const amp = document.getElementById('amp');
+        const bio = document.getElementById('bio');
+        
         amp.addEventListener('mouseenter', () => amp.src = 'images/amp-on.png');
         amp.addEventListener('mouseleave', () => amp.src = 'images/amp-off.png');
+        amp.addEventListener('click', () => bio.classList.toggle('show'));
     </script>
 </body>
 </html>
